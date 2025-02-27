@@ -28,7 +28,9 @@ public class Player{
         }
         SortCards();
         for (int i = 0 ; i < allCards.size() ; i ++ ) {
-            if (allCards.get(i) )
+            if (allCards.get(i) ) {
+
+            }
         }
         
 
@@ -36,7 +38,7 @@ public class Player{
         return "Nothing";
     }
 
-    public void SortCards(){
+    public void SortAllCards(){
         for (int i = 0; i < allCards.size() ; i++) {
             for (j = i; j < allCards.size() ; j++) {
                 if (allCards.get(j) < allCards.get(i)) {
@@ -70,12 +72,29 @@ public class Player{
         return highCard;
     }
 
-    private boolean checkForDupes() {
-        for (Card card : )
+    private boolean checkForDupeRanks() {
+        for (Card card : allCards)
     }
 
-    private void removeDupes() {
-        
+    private ArrayList<Integer> removeDuplicates(){
+        ArrayList<Card> alreadyInList = new ArrayList<>();
+        boolean inList = false;
+        for (int i = 0; i < allCards.size(); i++) {
+            for (int a : alreadyInList) {
+                if (allCards.get(i) == a) {
+                    allCards = true;
+                }
+            }
+            if (!inList) {
+                alreadyInList.add(intList.get(i));
+            }
+            if (inList) {
+                intList.remove(i);
+                i --;
+                inList = false;
+            }
+        }
+        return intList;
     }
 
 
