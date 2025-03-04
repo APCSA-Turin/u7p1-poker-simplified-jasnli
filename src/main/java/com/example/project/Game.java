@@ -18,6 +18,8 @@ public class Game{
             return "Player 2 wins!";
         } else {
             if (player1.equals("Nothing")) {
+                System.out.println(p1.findNothingHighCard());
+                System.out.println(p2.findNothingHighCard());
                 if (p1.findNothingHighCard() > p2.findNothingHighCard()) {
                     return "Player 1 wins!";
                 } else if (p1.findNothingHighCard() < p2.findNothingHighCard()) {
@@ -42,6 +44,11 @@ public class Game{
                 } else if (Utility.getRankValue(p1.getPair().get(0)) < Utility.getRankValue(p2.getPair().get(0))) {
                     return "Player 2 wins!";
                 } else {
+                    if (p1.findNothingHighCard() > p2.findNothingHighCard()) {
+                        return "Player 1 wins!";
+                    } else if (p1.findNothingHighCard() < p2.findNothingHighCard()) {
+                        return "Player 2 wins!";
+                    }
                     return "Tie!";
                 }
             }
@@ -105,20 +112,25 @@ public class Game{
         Player player2 = new Player();
         
         player1.addCard(new Card("7", "♠"));
-        player1.addCard(new Card("8", "♠"));
+        player1.addCard(new Card("10", "♠"));
+  
+        player2.addCard(new Card("A", "♠"));
+        player2.addCard(new Card("3", "♠"));
+
         
-        player2.addCard(new Card("9", "♠"));
-        player2.addCard(new Card("10", "♠"));
-        
+        // Community cards that could help form the flush
         ArrayList<Card> communityCards = new ArrayList<>();
-        communityCards.add(new Card("Q", "♦"));
-        communityCards.add(new Card("J", "♣"));
-        communityCards.add(new Card("A", "♠"));
+        communityCards.add(new Card("J", "♠")); // Player 1 completes the flush with this card
+        communityCards.add(new Card("J", "♥"));
+        communityCards.add(new Card("Q", "♠"));
         
+        // Player results after playing the hand
         String p1Result = player1.playHand(communityCards);
         String p2Result = player2.playHand(communityCards);
         
+        // Determine the winner
         String winner = Game.determineWinner(player1, player2, p1Result, p2Result, communityCards);
+        System.out.println(winner);
     }
         
         
