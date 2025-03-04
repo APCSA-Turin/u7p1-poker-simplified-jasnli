@@ -56,6 +56,7 @@ public class Player{
         return "Nothing";
     }
 
+<<<<<<< HEAD
     public void sortAllCards(){
         for (int i = 0; i < allCards.size() ; i++) {
             for (int j = i; j < allCards.size() ; j++) {
@@ -65,6 +66,9 @@ public class Player{
             }
         }
     } 
+=======
+    public void sortAllCards(){} 
+>>>>>>> upstream/main
 
     public ArrayList<Integer> findRankingFrequency(){
         ArrayList<Integer> freqList = new ArrayList<>();
