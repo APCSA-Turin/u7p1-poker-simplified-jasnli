@@ -30,14 +30,14 @@ public class Deck{
         Collections.shuffle(cards);
     }
 
-    public  Card drawCard(){
+    public Card drawCard(){
         if (!isEmpty()) {
             return cards.remove(0);
         }
        return null;
     }
 
-    public  boolean isEmpty(){
+    public boolean isEmpty(){
         return cards.isEmpty();
     }
 
